@@ -65,7 +65,7 @@ self-adapting.
   ;; Setting English Font
   (if (member "Monaco" (font-family-list))
       (set-face-attribute
-       'default nil :font "Monaco 12"))
+       'default nil :font "Monaco 14"))
 #+END_SRC
 
 * Full screen support
