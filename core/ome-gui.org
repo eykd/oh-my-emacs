@@ -37,6 +37,13 @@ This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
   ;; Toggle line highlighting in all buffers
   (global-hl-line-mode t)
+
+  (when window-system
+    (set-frame-size (selected-frame) 140 40)
+    (add-to-list 'default-frame-alist '(width . 140))
+    (add-to-list 'default-frame-alist '(height . 40))
+    )
+
 #+END_SRC
 
 * Choose Monaco as the Default English Font
