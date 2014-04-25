@@ -102,6 +102,53 @@ given depth."
   (ome-install 'rainbow-delimiters)
 #+END_SRC
 
+* Rainbow Identifiers
+
+Better syntax highlighting:
+- https://medium.com/p/3a6db2743a1e/
+- http://amitp.blogspot.com/2014/04/emacs-rainbow-identifiers.html
+
+rainbow-identifiers is installed in src/ since it's not in ELPA.
+
+#+NAME: rainbow-identifiers
+#+BEGIN_SRC emacs-lisp
+  (require 'rainbow-identifiers)
+
+  (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+#+END_SRC
+
+From Amit: I first turned off font-lock colors:
+
+#+BEGIN_SRC emacs-lisp
+  ;; (set-face-attribute 'font-lock-comment-face nil :foreground nil :slant 'italic)
+  ;; (set-face-attribute 'font-lock-comment-delimiter-face nil :slant 'italic)
+  ;; (set-face-attribute 'font-lock-constant-face nil :foreground nil :underline t)
+  ;; (set-face-attribute 'font-lock-type-face nil :foreground nil)
+  ;; (set-face-attribute 'font-lock-function-name-face nil :foreground nil :weight 'bold)
+  ;; (set-face-attribute 'font-lock-variable-name-face nil :foreground nil)
+  ;; (set-face-attribute 'font-lock-keyword-face nil :foreground nil :slant 'italic)
+  (set-face-attribute 'font-lock-string-face nil :background "#0e0e0e")
+  ;; (set-face-attribute 'font-lock-builtin-face nil :foreground nil :slant 'italic)
+#+END_SRC
+
+From Amit: I wanted a different set of colors for rainbow identifiers, so I
+generated some in L*a*b* color space:
+
+#+BEGIN_SRC emacs-lisp
+(loop for i from 1 to 15 do
+      (let* ((lightness 45)
+             (saturation 40)
+             (angle (* 2 pi (/ i 15.0)))
+             (a (* saturation (cos angle)))
+             (b (* saturation (sin angle))))
+        (set-face-attribute
+             (intern (format "rainbow-identifiers-identifier-%s" i))
+             nil
+             :foreground (apply 'color-rgb-to-hex
+                             (color-lab-to-srgb lightness a b)))))
+#+END_SRC
+
+
 * Transparently Open Compressed Files
   :PROPERTIES:
   :CUSTOM_ID: auto-compression-mode
