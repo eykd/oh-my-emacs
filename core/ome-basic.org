@@ -48,7 +48,7 @@ This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
   ;; set environment coding system
   (set-language-environment "UTF-8")
   ;; set TAB and indention
-  (setq-default tab-width 4)
+  (setq-default tab-width 2)
   (setq-default indent-tabs-mode nil)
   ;; y or n is suffice for a yes or no question
   (fset 'yes-or-no-p 'y-or-n-p)
