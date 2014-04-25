@@ -47,8 +47,6 @@ This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
   ;; set environment coding system
   (set-language-environment "UTF-8")
-  ;; auto revert buffer globally
-  (global-auto-revert-mode t)
   ;; set TAB and indention
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
