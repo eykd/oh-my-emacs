@@ -52,7 +52,12 @@ economics at the ohio state university, who maintains a lot of open source
 #+BEGIN_SRC emacs-lisp
   (defun ome-markdown-mode-setup ()
     (add-to-list 'auto-mode-alist
-                 '("\\.mdpp" . markdown-mode)))
+                 '("\\.mdpp" . markdown-mode))
+    (add-to-list 'auto-mode-alist
+                 '("\\.md" . markdown-mode))
+    (add-to-list 'auto-mode-alist
+                 '("\\.story" . markdown-mode))
+    )
 
   (ome-install 'markdown-mode)
 #+END_SRC
