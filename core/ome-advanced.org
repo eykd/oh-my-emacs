@@ -33,124 +33,9 @@ Notes:
 #+CAPTION: El-get packages matrix for ome-advanced module
 |                  | Status      | Description                                   |
 |------------------+-------------+-----------------------------------------------|
-| [[http://gitorious.org/evil][evil]]             | Required    | Finally, the Emacs OS get a good editor.      |
-| [[https://github.com/cofi/evil-leader][evil-leader]]      | Required    | <leader> key for evil.                        |
-| [[https://github.com/timcharper/evil-surround][evil-surround]]    | Recommended | Surround.vim for evil.                        |
 | [[https://github.com/magnars/expand-region.el][expand-region.el]] | Recommended | Expand and select.                            |
-| [[git://gitorious.org/vimpulse/vimpulse.git][vimpulse]]         | Deprecated  | Use evil instead.                             |
-| [[http://www.gnu.org/software/emacs/manual/html_node/viper/][viper]]            | Deprecated  | Use evil instead.                             |
 | [[https://github.com/jhelwig/ack-and-a-half][ack-and-a-half]]   | Recommended | Yet another emacs front-end to ack.           |
 | [[https://github.com/winterTTr/ace-jump-mode][ace-jump-mode]]    | Recommended | A quick cursor location minor mode for emacs. |
-
-* Evil
-  :PROPERTIES:
-  :CUSTOM_ID: evil
-  :END:
-
-#+BEGIN_QUOTE
-As a poke at Emacs' creeping featurism, vi advocates have been known to
-describe Emacs as "a great operating system, lacking only a decent editor".
-
--- [[http://en.wikipedia.org/wiki/Editor_war][Editor war]]
-#+END_QUOTE
-
-I must say that emacs is a great platform, but lacks a quick and effective
-editor like vi, fortunately, there comes [[http://gitorious.org/evil][evil]].
-
-"Evil is an extensible vi layer for Emacs. It emulates the main features of
-Vim, and provides facilities for writing custom extensions." IMHO, evil is a
-great successor to [[http://www.emacswiki.org/emacs/Vimpulse][Vimpulse]], [[http://www.emacswiki.org/emacs/VimMode][vim-mode]] and [[http://www.emacswiki.org/emacs/ViperMode][ViperMode]].
-
-By default, oh-my-emacs =turn-on-evil-mode= on =text-mode= and =prog-mode=,
-since emacs has only three [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Basic-Major-Modes.html][basic major modes]], you'll get evil enabled in almost
-all modes which focus on editing, by editing I mean, modes such as =c-mode=,
-=js-mode= would =turn-on-evil-mode=, however, modes such as =dired=, =info=
-would not =turn-on-evil-mode= by default. And since =Info-mode= didn't has a
-parent mode, so we need to =turn-off-evil-mode= manually.
-
-If you need to turn off evil temporarily for a single buffer, use
-=M-x evil-local-mode= instead of =M-x evil-mode=, since the latter will turn
-off evil-mode globally, which means, evil-mode will be turned off for the whole
-Emacs session.
-
-#+NAME: evil
-#+BEGIN_SRC emacs-lisp
-  (defun ome-evil-setup ()
-    (setq evil-auto-indent t)
-    (setq evil-regexp-search t)
-    (setq evil-want-C-i-jump t)
-    (add-hook 'text-mode-hook 'turn-on-evil-mode)
-    (add-hook 'prog-mode-hook 'turn-on-evil-mode)
-    (add-hook 'comint-mode-hook 'turn-on-evil-mode)
-    (add-hook 'Info-mode-hook 'turn-off-evil-mode))
-
-  (ome-install 'evil)
-#+END_SRC
-
-* Evil-leader
-  :PROPERTIES:
-  :CUSTOM_ID: evil-leader
-  :END:
-
-The keyboard is a real and heavily occupied estate in both Emacs and
-Vim. Specially, just about every key is already bound to a command in normal
-state Vim. Fortunately, Vim provides an easy way to define additional mappings
-on these keys. It's called a [[http://usevim.com/2012/07/20/vim101-leader/][mapleader]].
-
-Evil leader just provides the =<leader>= feature from Vim to evil, which
-provides an easy way to bind keys under a variable prefix key. The default
-binding of =<leader>= is =\=, which is not easy to reach, so oh-my-emacs bind
-it to =<SPC>=, you don't use =<SPC>= to move right, ha?  Some other people
-prefer to bind the =<leader>= key to comma =,=, but =,= already has a
-binding(=evil-repeat-find-char-revers= in evil normal state).
-
-BTW, oh-my-emacs will use =helm= in evil-leader if available. So now you can do
-=helm-find-files= simply by =<SPC> e=, for example. Enjoy it.
-
-#+NAME: evil-leader
-#+BEGIN_SRC emacs-lisp
-  (defun ome-evil-leader-setup ()
-    (evil-leader/set-leader "<SPC>")
-    (if (featurep 'helm)
-        (evil-leader/set-key
-          "e" 'helm-find-files
-          "b" 'helm-buffers-list)
-      (evil-leader/set-key
-        "e" 'find-file
-        "b" 'switch-to-buffer))
-    (if (featurep 'expand-region)
-        (progn
-          (setq expand-region-contract-fast-key "z")
-          (evil-leader/set-key "xx" 'er/expand-region)))
-    (evil-leader/set-key
-      "k" 'kill-buffer)
-    (global-evil-leader-mode))
-
-  (ome-install 'evil-leader)
-#+END_SRC
-
-* Evil-surround
-  :PROPERTIES:
-  :CUSTOM_ID: evil-surround
-  :END:
-
-As I said, =smartparens= is the ultimate pair management solution for
-Emacs. So why [[https://github.com/timcharper/evil-surround][evil-surround]]?
-
-[[https://github.com/timcharper/evil-surround][evil-surround]] is a port of [[https://github.com/tpope/vim-surround][vim-surround]] to evil. I think you can treat
-=evil-surround= as a complement of =smartparens= in pair changing, deleting
-and adding, while =smartparens= is good at pair inserting and operating.
-
-IMHO, no editors can compete with Vim in pure text editing speed[1]. So I
-think =evil-surround= is still worth a try. [[http://www.catonmat.net/blog/vim-plugins-surround-vim/][Here]] is an excellent and concise
-tutorial for =vim-surround=. Note that there may be some minor differences
-between =evil-surround= and =vim-surround=. However, for daily use, they're
-almost the same.
-
-#+NAME: evil-surround
-#+BEGIN_SRC emacs-lisp
-  (ome-install 'evil-surround)
-#+END_SRC
 
 * Expand-region
   :PROPERTIES:
@@ -200,22 +85,11 @@ To tell the truth, I still don't why it it called "ace-jump". Seems [[https://gi
 first appears as an [[http://www.jetbrains.com/idea/][Intellij]] [[http://plugins.jetbrains.com/plugin/7086?pr%3DphpStorm][plugin]]. [[http://www.vim.org/scripts/script.php?script_id%3D3526][EasyMotion]] provides a similar feature to
 Vim.
 
-Oh-my-emacs adopt [[https://github.com/cofi/evil-leader][evil-leader]] and bind serveral keys to ace-jump-mode commands:
-- =<Leader> c=: =ace-jump-char-mode=
-- =<Leader> w=: =ace-jump-word-mode=
-- =<Leader> l=: =ace-jump-line-mode=
-
-By default, =<Leader>= is =<SPC>=, so you can use =<SPC> c= to activate
-=ace-jump-char-mode=, and move you cursor quickly and directly. Enjoy it.
-
 #+NAME: ace-jump-mode
 #+BEGIN_SRC emacs-lisp
   (defun ome-ace-jump-mode-setup ()
-    (when (and (featurep 'evil) (featurep 'evil-leader))
-      (evil-leader/set-key
-        "c" 'ace-jump-char-mode
-        "w" 'ace-jump-word-mode
-        "l" 'ace-jump-line-mode)))
+    ; ...
+    )
 
   (ome-install 'ace-jump-mode)
 #+END_SRC
