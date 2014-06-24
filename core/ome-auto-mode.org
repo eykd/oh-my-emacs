@@ -36,7 +36,11 @@ solve this by adopting =el-get=. Thanks =el-get= again!
   (defun ome-yaml-mode-setup ()
     (add-hook 'yaml-mode-hook
               (lambda ()
-                (linum-mode 1))))
+                (linum-mode 1)))
+    (add-to-list 'auto-mode-alist
+                 '("\\.sls" . yaml-mode))
+
+    )
 
   (ome-install 'yaml-mode)
 #+END_SRC

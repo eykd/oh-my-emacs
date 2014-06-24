@@ -135,10 +135,41 @@ elpy.
       (setq elpy-default-minor-modes
             (remove 'flymake-mode
                     elpy-default-minor-modes)))
-    (define-key python-mode-map (kbd "RET")
-      'newline-and-indent))
+    )
 
   (ome-install 'elpy)
+#+END_SRC
+
+Let's override some of the unfortunate keybindings in elpy:
+
+#+BEGIN_SRC emacs-lisp
+  (defun local-scroll-down-one ()
+    (scroll-down 1)
+    )
+  (defun local-scroll-up-one ()
+    (scroll-up 1)
+    )
+
+  (defun local-fix-elpy-keys()
+    (require 'elpy)
+    ;; elpy-mode-map
+    (define-key elpy-mode-map (kbd "RET") 'newline-and-indent)
+    (define-key elpy-mode-map (kbd "\M-n") 'local-scroll-up-one)
+    (define-key elpy-mode-map (kbd "\M-p") 'local-scroll-down-one)
+    ;; python-mode-map
+    (define-key python-mode-map (kbd "RET") 'newline-and-indent)
+    (define-key python-mode-map (kbd "\M-n") 'local-scroll-up-one)
+    (define-key python-mode-map (kbd "\M-p") 'local-scroll-down-one)
+    )
+
+  (add-hook 'python-mode-hook 'local-fix-elpy-keys)
+  (add-hook 'elpy-mode-hook 'local-fix-elpy-keys)
+
+  (defun local-fix-elpy-tab-width()
+    (setq tab-width 4)
+    )
+  (add-hook 'python-mode-hook 'local-fix-elpy-tab-width)
+  (add-hook 'elpy-mode-hook 'local-fix-elpy-tab-width)
 #+END_SRC
 
 Some python web frameworks often provide a =*.wsgi= file to application

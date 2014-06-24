@@ -80,12 +80,6 @@ Occur can show all lines in the current buffer containing a match for REGEXP.
   (global-set-key (kbd "C-c o") 'occur)
 #+END_SRC
 
-* RET
-
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
-#+END_SRC
-
 * Buffer scrolling
 Buffer scrolling w/o moving the cursor, from
 http://www.emacswiki.org/cgi-bin/wiki/BufferScrolling.
