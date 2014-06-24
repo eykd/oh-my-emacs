@@ -25,3 +25,22 @@
 (setq display-time-interval 10)
 ;; show time
 (display-time-mode t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(display-time-mode t)
+ '(show-paren-mode t)
+ '(speedbar-frame-parameters (quote ((minibuffer) (width . 42) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
+ '(speedbar-select-frame-method 1)
+ '(speedbar-show-unknown-files t)
+ '(text-mode-hook (quote ((lambda nil (linum-mode 1)) (lambda nil (setq ac-fuzzy-enable t) (add-to-list (quote ac-sources) (quote ac-source-files-in-current-dir)) (add-to-list (quote ac-sources) (quote ac-source-filename))) text-mode-hook-identify)))
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
