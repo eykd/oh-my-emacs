@@ -1,0 +1,33 @@
+#+TITLE: Oh My Emacs Gherkin
+#+OPTIONS: toc:nil num:nil ^:nil
+
+This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+
+* El-get packages
+  :PROPERTIES:
+  :CUSTOM_ID: python-el-get-packages
+  :END:
+
+#+NAME: python-el-get-packages
+#+CAPTION: El-get packages for ome-python module
+|              | Status   | Description                           |
+|--------------+----------+---------------------------------------|
+| [[https://github.com/jorgenschaefer/elpy][feature-mode]] | Required | Major mode for editing Gherkin files. |
+
+* feature-mode
+  :PROPERTIES:
+  :CUSTOM_ID: feature-mode
+  :END:
+
+Just a little bit of color and indentation help makes all the difference!
+
+#+NAME: feature-mode
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'el-get-sources
+               `(:name feature-mode
+                      :type git
+                      :url "git://github.com/michaelklishin/cucumber.el.git"
+                      :features feature-mode
+                      :compile "feature-mode.el"
+                      ))
+#+END_SRC
