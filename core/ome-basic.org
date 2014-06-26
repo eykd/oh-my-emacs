@@ -135,8 +135,8 @@ Commands]].
 #+NAME: auto-fill
 #+BEGIN_SRC emacs-lisp
   (setq-default fill-column 79)
-  (add-hook 'text-mode-hook 'turn-on-auto-fill)
-  ;(add-hook 'prog-mode-hook 'turn-on-auto-fill)
+  ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
+  ;; (add-hook 'prog-mode-hook 'turn-on-auto-fill)
 #+END_SRC
 
 * Save Place in Opened Files
