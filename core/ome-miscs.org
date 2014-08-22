@@ -358,6 +358,7 @@ some time to master these wonderful commands, which will make your life easier.
     (require 'smartparens-config)
     (setq sp-autoskip-closing-pair 'always)
     (setq sp-navigate-close-if-unbalanced t)
+    (setq sp-autoescape-string-quote nil)
     (smartparens-global-mode t)
 
     ;; highlights matching pairs
