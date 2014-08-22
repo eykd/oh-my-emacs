@@ -32,7 +32,9 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-time-mode t)
+ '(nxml-slash-auto-complete-flag t)
  '(show-paren-mode t)
+ '(sp-ignore-modes-list (quote (minibuffer-inactive-mode nxml-mode)))
  '(speedbar-frame-parameters (quote ((minibuffer) (width . 42) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
  '(speedbar-select-frame-method 1)
  '(speedbar-show-unknown-files t)
@@ -43,4 +45,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(sp-show-pair-match-face ((t (:background "dark blue")))))
