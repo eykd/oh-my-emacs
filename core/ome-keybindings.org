@@ -26,14 +26,6 @@ Key bindings for oh-my-emacs, mainly imported from [[https://github.com/eschulte
   (define-key global-map (kbd "C--") 'text-scale-decrease)
 #+END_SRC
 
-* Use regex searches by default.
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-  (global-set-key (kbd "C-r") 'isearch-backward-regexp)
-  (global-set-key (kbd "C-M-s") 'isearch-forward)
-  (global-set-key (kbd "C-M-r") 'isearch-backward)
-#+END_SRC
-
 * File finding
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
