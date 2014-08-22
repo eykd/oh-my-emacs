@@ -57,6 +57,12 @@ economics at the ohio state university, who maintains a lot of open source
                  '("\\.md" . markdown-mode))
     (add-to-list 'auto-mode-alist
                  '("\\.story" . markdown-mode))
+    (add-hook 'markdown-mode-hook
+            (lambda ()
+              (when buffer-file-name
+                (add-hook 'after-save-hook
+                          'check-parens
+                          nil t))))
     )
 
   (ome-install 'markdown-mode)
