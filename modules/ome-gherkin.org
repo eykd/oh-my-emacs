@@ -23,11 +23,5 @@ Just a little bit of color and indentation help makes all the difference!
 
 #+NAME: feature-mode
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'el-get-sources
-               `(:name feature-mode
-                      :type git
-                      :url "git://github.com/michaelklishin/cucumber.el.git"
-                      :features feature-mode
-                      :compile "feature-mode.el"
-                      ))
+  (ome-install 'feature-mode)
 #+END_SRC
