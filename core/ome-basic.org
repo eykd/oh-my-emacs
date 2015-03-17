@@ -312,6 +312,21 @@ put it in ome-experimental module instead of core.
   (ome-install 'fill-column-indicator)
 #+END_SRC
 
+* Ethan Whitespace Mode
+  :PROPERTIES:
+  :CUSTOM_ID: fill-column-indicator
+  :END:
+
+Presenting, with tongue firmly in cheek: ethan-wspace, the definitive emacs customizations for people who are OCD about whitespace.
+
+#+NAME: ethan-wspace mode
+#+BEGIN_SRC emacs-lisp :tangle no
+  (defun ome-ethan-wspace-setup ()
+    (setq global-ethan-wspace-mode 1))
+
+  (ome-install 'ethan-wspace)
+#+END_SRC
+
 * ws-butler
 
 ws-butler is installed in src/ since it's not in ELPA.
