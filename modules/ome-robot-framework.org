@@ -1,0 +1,28 @@
+#+TITLE: Oh My Emacs Robot Framework
+#+OPTIONS: toc:nil num:nil ^:nil
+
+This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+
+* El-get packages
+  :PROPERTIES:
+  :CUSTOM_ID: python-el-get-packages
+  :END:
+
+#+NAME: python-el-get-packages
+#+CAPTION: El-get packages for ome-python module
+|            | Status   | Description                                   |
+|------------+----------+-----------------------------------------------|
+| [[https://github.com/jorgenschaefer/elpy][robot-mode]] | Required | Major mode for editing Robot Framework files. |
+|            |          |                                               |
+
+* robot-mode
+  :PROPERTIES:
+  :CUSTOM_ID: robot-mode
+  :END:
+
+Just a little bit of color and indentation help makes all the difference!
+
+#+NAME: feature-mode
+#+BEGIN_SRC emacs-lisp
+  (ome-install 'robot-mode)
+#+END_SRC

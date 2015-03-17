@@ -1,0 +1,5 @@
+(:name robot-mode
+       :website "https://github.com/sakari/robot-mode#readme"
+       :description "Major mode for editing text files used by the robot framework testing tool."
+       :type github
+       :pkgname "sakari/robot-mode")
