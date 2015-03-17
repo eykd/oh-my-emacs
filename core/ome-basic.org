@@ -300,7 +300,7 @@ This package still has some conflicts with other oh-my-emacs packages, so I
 put it in ome-experimental module instead of core.
 
 #+NAME: fill-column-indicator
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
     (defun ome-fill-column-indicator-setup ()
       (setq fci-rule-width 1)
       (setq fci-rule-color "darkblue")
