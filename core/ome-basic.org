@@ -312,6 +312,24 @@ put it in ome-experimental module instead of core.
   (ome-install 'fill-column-indicator)
 #+END_SRC
 
+* Whitespace
+  :PROPERTIES:
+  :CUSTOM_ID: whitespace
+  :END:
+
+We want to highlight certain kinds of whitespace as a visual indicator that
+something is wrong. Tabs, overly-long lines, that sort of thing. Make ugliness
+extra ugly!
+
+#+NAME: whitespace
+#+BEGIN_SRC emacs-lisp
+  (require 'whitespace)
+  '(whitespace-line ((t (:background "gray14" :foreground "red3")))))
+  (setq whitespace-style '(face empty tabs lines-tail))
+  (global-whitespace-mode t)
+
+#+END_SRC
+
 * Ethan Whitespace Mode
   :PROPERTIES:
   :CUSTOM_ID: fill-column-indicator
