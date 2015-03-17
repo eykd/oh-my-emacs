@@ -320,7 +320,7 @@ put it in ome-experimental module instead of core.
 Presenting, with tongue firmly in cheek: ethan-wspace, the definitive emacs customizations for people who are OCD about whitespace.
 
 #+NAME: ethan-wspace mode
-#+BEGIN_SRC emacs-lisp :tangle no
+#+BEGIN_SRC emacs-lisp
   (defun ome-ethan-wspace-setup ()
     (setq global-ethan-wspace-mode 1))
 
@@ -331,7 +331,7 @@ Presenting, with tongue firmly in cheek: ethan-wspace, the definitive emacs cust
 
 ws-butler is installed in src/ since it's not in ELPA.
 
-#+NAME: ws-butler
+#+NAME: ws-butler  :tangle no
 #+BEGIN_SRC emacs-lisp
   (require 'ws-butler)
   (add-hook 'python-mode-hook 'ws-butler-mode)
