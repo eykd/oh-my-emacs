@@ -300,14 +300,15 @@ This package still has some conflicts with other oh-my-emacs packages, so I
 put it in ome-experimental module instead of core.
 
 #+NAME: fill-column-indicator
-#+BEGIN_SRC emacs-lisp :tangle no
-  (defun ome-fill-column-indicator-setup ()
-    (setq fci-rule-width 1)
-    (setq fci-rule-color "darkblue")
-    (setq fci-rule-column 80)
-    (add-hook 'text-mode-hook 'turn-on-fci-mode)
-    (add-hook 'prog-mode-hook 'turn-on-fci-mode))
-
+#+BEGIN_SRC emacs-lisp
+    (defun ome-fill-column-indicator-setup ()
+      (setq fci-rule-width 1)
+      (setq fci-rule-color "darkblue")
+      (setq fci-rule-column 80)
+      (add-hook 'text-mode-hook 'turn-on-fci-mode)
+      (add-hook 'prog-mode-hook 'turn-on-fci-mode)
+      (define-globalized-minor-mode global-fci-mode fci-mode turn-on-fci-mode)
+      (global-fci-mode 1))
   (ome-install 'fill-column-indicator)
 #+END_SRC
 
