@@ -324,7 +324,7 @@ extra ugly!
 #+NAME: whitespace
 #+BEGIN_SRC emacs-lisp
   (require 'whitespace)
-  '(whitespace-line ((t (:background "gray14" :foreground "red3")))))
+  '(whitespace-line ((t (:background "gray14" :foreground "red3"))))
   (setq whitespace-style '(face empty tabs lines-tail))
   (global-whitespace-mode t)
 
@@ -337,7 +337,7 @@ extra ugly!
 
 Presenting, with tongue firmly in cheek: ethan-wspace, the definitive emacs customizations for people who are OCD about whitespace.
 
-#+NAME: ethan-wspace mode
+#+NAME: ethan-wspace mode  :tangle no
 #+BEGIN_SRC emacs-lisp
   (defun ome-ethan-wspace-setup ()
     (setq global-ethan-wspace-mode 1))
@@ -349,10 +349,10 @@ Presenting, with tongue firmly in cheek: ethan-wspace, the definitive emacs cust
 
 ws-butler is installed in src/ since it's not in ELPA.
 
-#+NAME: ws-butler  :tangle no
+#+NAME: ws-butler
 #+BEGIN_SRC emacs-lisp
   (require 'ws-butler)
-  (add-hook 'python-mode-hook 'ws-butler-mode)
+  (ws-butler-global-mode)
 
 #+END_SRC
 
