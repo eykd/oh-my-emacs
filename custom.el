@@ -32,6 +32,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-time-mode t)
+ '(frame-background-mode (quote dark))
  '(git-commit-fill-column 2000000)
  '(nxml-slash-auto-complete-flag t)
  '(show-paren-mode t)
