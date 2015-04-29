@@ -221,10 +221,7 @@ I just gave up. Since for any questions in =po-mode=, you can just type =?= or
   (defun ome-po-mode-setup ()
     (add-hook 'po-mode-hook
               (lambda ()
-                (linum-mode 1)))
-    ;; disable evil-mode since some key binding conflicts
-    (when (featurep 'evil)
-      (add-hook 'po-mode-hook 'turn-off-evil-mode)))
+                (linum-mode 1))))
 
   (ome-install 'po-mode)
 #+END_SRC
@@ -330,8 +327,7 @@ Smartparens didn't provide keybindings for most of its commands by default, so
 you must define proper =sp-keymap= by yourself, however, smartparens does
 provide =sp-use-paredit-bindings= and =sp-use-smartparens-bindings= as a good
 starting point. Oh-my-emacs adopt its own keybindings for smartparens, which
-defines =M-s= as the prefix key. The default keybindings provided by
-smartparens has some conflicts with =evil='s =ESC= key. If you have any other
+defines =M-s= as the prefix key. If you have any other
 good suggestions, please tell me, thanks!
 
 I spent about one week's spare time just learning this amazing
