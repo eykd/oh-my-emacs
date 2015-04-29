@@ -324,7 +324,9 @@ extra ugly!
 #+NAME: whitespace
 #+BEGIN_SRC emacs-lisp
   (require 'whitespace)
-  '(whitespace-line ((t (:background "gray14" :foreground "red3"))))
+
+  '(whitespace-line ((t (:foreground "dark gray" :underline t))))
+
   (setq whitespace-style '(face empty tabs lines-tail))
   (global-whitespace-mode t)
 
