@@ -245,7 +245,9 @@ extension for GNU Emacs 24.
   (defun ome-flycheck-setup ()
     (eval-after-load 'flycheck
       '(setq flycheck-checkers (delq 'emacs-lisp-checkdoc flycheck-checkers)))
-    (add-hook 'prog-mode-hook 'flycheck-mode))
+    (add-hook 'prog-mode-hook 'flycheck-mode)
+    (add-hook 'python-mode-hook 'flycheck-mode)
+    (add-hook 'after-init-hook 'global-flycheck-mode))
 
   (ome-install 'flycheck)
 #+END_SRC
@@ -328,7 +330,18 @@ extra ugly!
   '(whitespace-line ((t (:foreground "dark gray" :underline t))))
 
   (setq whitespace-style '(face empty tabs lines-tail))
-  (global-whitespace-mode t)
+  (setq whitespace-line-column 90)
+  (add-hook 'python-mode-hook 'whitespace-mode)
+
+  ;; (defadvice color-theme-install (after my-color-theme-install-after activate)
+  ;;   "Fix trailing-whitespace after color theme destroys it"
+  ;;   (set-face-attribute 'trailing-whitespace nil
+  ;;                       :foreground 'unspecified
+  ;;                       :inverse-video 'unspecified
+  ;;                       :slant 'unspecified
+  ;;                       :weight 'unspecified
+  ;;                       :background "#fff"))
+
 
 #+END_SRC
 

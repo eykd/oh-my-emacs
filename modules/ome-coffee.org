@@ -1,0 +1,47 @@
+#+TITLE: Oh My Emacs coffee
+#+OPTIONS: toc:2 num:nil ^:nil
+
+This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+
+* Prerequisites
+  :PROPERTIES:
+  :CUSTOM_ID: coffee-prerequisites
+  :END:
+
+#+NAME: coffee-prerequisites
+#+CAPTION: Prerequisites for ome-coffee module
+|     | Windows | Ubuntu/Debian/Mint     | ArchLinux | Fedora | Mac OS X | Mandatory? |
+|-----+---------+------------------------+-----------+--------+----------+------------|
+| [[http://coffee.net/][coffee]] |         | coffee5 coffee5-cli coffee-pear |           |        |          | No         |
+
+
+* El-get packages
+  :PROPERTIES:
+  :CUSTOM_ID: coffee-el-get-packages
+  :END:
+
+#+NAME: coffee-el-get-packages
+#+CAPTION: El-get packages for ome-coffee module
+|                      | Status   | Description         |
+|----------------------+----------+---------------------       |
+| [[https://github.com/ejmr/coffee-mode][coffee-mode]]          | Required | Major mode for coffee. |
+| literate-[[https://github.com/ejmr/coffee-mode][coffee-mode]] | Required | Major mode for coffee. |
+
+* coffee-mode
+  :PROPERTIES:
+  :CUSTOM_ID: coffee-mode
+  :END:
+
+#+NAME: coffee-mode
+#+BEGIN_SRC emacs-lisp
+  (defun ome-coffee-mode-setup ())
+  (ome-install 'coffee-mode)
+#+END_SRC
+
+* literate-coffee-mode
+
+#+NAME: literate-coffee-mode
+#+BEGIN_SRC emacs-lisp
+  ;; (defun ome-literate-coffee-mode-setup ())
+  ;; (ome-install 'literate-coffee-mode)
+#+END_SRC

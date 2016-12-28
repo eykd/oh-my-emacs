@@ -1,0 +1,6 @@
+(:name literate-coffee-mode
+       :type git
+       :url "https://github.com/syohex/emacs-literate-coffee-mode.git"
+       :requires coffee-mode
+       :features literate-coffee-mode
+       :compile "literate-coffee-mode.el")

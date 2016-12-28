@@ -26,6 +26,7 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
 
 ;; Now install el-get at the very first
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -64,6 +65,8 @@ FILENAME defaults to `buffer-file-name'."
                      :after (progn
                               (ome-org-mode-setup))))
 
+
+
 (el-get 'sync (mapcar 'el-get-source-name el-get-sources))
 
 (defvar ome-dir (file-name-directory (or load-file-name (buffer-file-name)))
@@ -73,3 +76,4 @@ FILENAME defaults to `buffer-file-name'."
 (org-babel-load-file (expand-file-name "ome.org" ome-dir))
 
 ;;; init.el ends here
+(put 'downcase-region 'disabled nil)
